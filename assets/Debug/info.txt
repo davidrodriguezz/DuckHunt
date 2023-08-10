@@ -1,0 +1,31 @@
+Imágenes de ayuda para la depuración de la carga de las imágenes.
+
+rgb.rgba contiene una imagen de 2x2 píxeles:
+
++-------+--------+
+|       |        |
+| Rojo  |  Verde |
+|       |        |
++-------+--------+
+|       |        |
+| Azul  | Blanco |
+|       |        |
++-------+--------+
+
+En hexadecimal, el contenido del fichero es:
+
+00000000  00 00 00 02 00 00 00 02  ff 00 00 ff 00 ff 00 ff
+00000010  00 00 ff ff ff ff ff ff
+
+En esta representación, cada línea muestra 16 bytes del fichero. La
+primera columna (00000000 y 00000010) indica la posición desde el
+inicio del fichero donde están los 16 bytes de la línea (en
+hexadecimal). Se puede ver que los cuatro primeros bytes en hexadecimal
+son 00 00 00 02 que, en big endian, es el número 2. Luego se repiten
+los mismos cuatro bytes. Ambos son el ancho y el alto. Después van
+4 píxeles en RGBA (de nuevo, en big endian), que son el rojo, azul,
+verde y blanco puros, todos con un alfa de 255.
+
+
+rgb_500x500.rgba es similar, pero de tamaño 500x500 (cada cuadrado de
+color uniforme es de 250x250 píxeles).
